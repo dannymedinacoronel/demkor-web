@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="MyStock Prime">
+  <defs>
+    <linearGradient id="msp-fondo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b3a6b"/>
+      <stop offset="1" stop-color="#0c1d3c"/>
+    </linearGradient>
+    <linearGradient id="msp-oro" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd76a"/>
+      <stop offset="1" stop-color="#e9a91c"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="url(#msp-fondo)"/>
+  <!-- Caja de inventario en perspectiva: la tapa dorada es el «Prime» -->
+  <path d="M256 150 376 210 256 270 136 210Z" fill="url(#msp-oro)"/>
+  <path d="M136 226 248 282V396L136 340Z" fill="#ffffff"/>
+  <path d="M376 226 264 282V396L376 340Z" fill="#ffffff" fill-opacity=".72"/>
+  <!-- Destello sobre la tapa -->
+  <path d="M378 96c4 22 12 30 34 34-22 4-30 12-34 34-4-22-12-30-34-34 22-4 30-12 34-34Z" fill="#ffd76a"/>
+</svg>

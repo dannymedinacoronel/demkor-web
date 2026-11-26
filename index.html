@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEMKOR CONSULTANTS · Consultora informática en Barcelona</title>
+<meta name="description" content="Consultora informática en Barcelona. Implantamos software de gestión, desarrollamos a medida y damos soporte IT. Creadores de MyStock Prime.">
+<meta name="theme-color" content="#0c1d3c">
+<link rel="icon" href="assets/demkor-192.png">
+<link rel="apple-touch-icon" href="assets/demkor-192.png">
+<meta property="og:title" content="DEMKOR CONSULTANTS">
+<meta property="og:description" content="Consultora informática en Barcelona. Creadores de MyStock Prime.">
+<meta property="og:image" content="assets/demkor-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Estructura tipo agencia (como mounpick.com): portada oscura, secciones claras, bloque de la empresa hermana.
+     Colores y tipografía sacados del logo de DEMKOR y del icono de MyStock Prime. */
+  :root{
+    --navy:#0c1d3c; --navy-2:#1b3a6b; --navy-3:#13284f;
+    --gold:#e9a91c; --gold-2:#ffd76a;
+    --paper:#f6f7fa; --surface:#ffffff; --line:#e1e5ee;
+    --ink:#0c1d3c; --muted:#5a6680; --on-dark:#e8edf7; --on-dark-muted:#9fb0cf;
+    --display:'Barlow Semi Condensed','Arial Narrow',system-ui,sans-serif;
+    --font:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+    --radius:16px; --max:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  body{margin:0;font-family:var(--font);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:var(--max);margin:0 auto;padding-inline:max(20px,env(safe-area-inset-left,0px))}
+  h1,h2,h3{font-family:var(--display);line-height:1.02;letter-spacing:-.01em;text-wrap:balance;margin:0}
+  .label{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+
+  /* Barra del grupo: las dos marcas hermanas */
+  .grupo{background:#081430;color:var(--on-dark-muted);font-size:13px}
+  .grupo .wrap{display:flex;gap:6px;align-items:center;justify-content:flex-end;padding-block:8px;flex-wrap:wrap}
+  .grupo span{margin-right:auto}
+  .grupo a{display:inline-flex;align-items:center;gap:7px;padding:4px 11px;border-radius:999px}
+  .grupo a.on{background:#ffffff14;color:#fff}
+  .grupo a:not(.on):hover{color:#fff}
+  .grupo img{width:16px;height:16px;border-radius:4px}
+
+  /* Cabecera */
+  header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:#0c1d3cf2;backdrop-filter:blur(10px);border-bottom:1px solid #ffffff14}
+  .nav .wrap{display:flex;align-items:center;gap:28px;height:70px}
+  .nav .logo img{height:38px;width:auto}
+  .menu{display:flex;gap:26px;margin-left:auto;font-size:15px;color:var(--on-dark-muted)}
+  .menu a:hover{color:#fff}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:600;font-size:15px;border:1px solid transparent;transition:transform .15s,box-shadow .15s,background .15s;cursor:pointer;font-family:inherit;white-space:nowrap}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-gold{background:var(--gold);color:var(--navy)}
+  .btn-gold:hover{box-shadow:0 10px 30px #e9a91c40}
+  .btn-line{border-color:#ffffff40;color:#fff}
+  .btn-line:hover{background:#ffffff10}
+  .btn-navy{background:var(--navy);color:#fff}
+  .btn-line-dark{border-color:#c9d1e0;color:var(--ink)}
+  .burger{display:none;margin-left:auto;background:none;border:0;color:#fff;font-size:26px;cursor:pointer;padding:6px}
+
+  /* Portada */
+  .hero{background:radial-gradient(ellipse 80% 70% at 85% 0%,#1b3a6b 0%,transparent 60%),var(--navy);color:var(--on-dark);padding-block:96px 84px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-2),var(--gold))}
+  .hero .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:end}
+  .hero h1{font-size:clamp(46px,7.6vw,96px);font-weight:700;color:#fff;margin:20px 0 24px;text-transform:uppercase;letter-spacing:-.005em}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p{font-size:19px;color:var(--on-dark-muted);max-width:54ch;margin:0 0 36px}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .hero aside{border-left:1px solid #ffffff1f;padding-left:32px;display:grid;gap:26px}
+  .hero aside div b{display:block;font-family:var(--display);font-size:44px;line-height:1;color:#fff}
+  .hero aside div span{font-size:14px;color:var(--on-dark-muted)}
+
+  section{padding-block:96px}
+  .head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+  .head h2{font-size:clamp(34px,4.8vw,58px);font-weight:700;margin-top:12px;max-width:17ch;text-transform:uppercase}
+  .head p{color:var(--muted);max-width:44ch;margin:0}
+
+  /* Servicios */
+  .servicios{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:var(--gold);transform:translateY(-3px)}
+  .card .n{font-family:var(--display);font-size:14px;letter-spacing:.12em;color:var(--muted);font-variant-numeric:tabular-nums}
+  .card h3{font-size:26px;font-weight:700}
+  .card ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px;display:grid;gap:5px}
+  .card .mas{margin-top:auto;font-weight:600;font-size:14px;color:var(--navy-2)}
+  .card.producto{background:linear-gradient(160deg,var(--navy-2),var(--navy));color:#fff;border-color:var(--navy)}
+  .card.producto ul{color:var(--on-dark-muted)}
+  .card.producto .n{color:var(--gold-2)}
+  .card.producto .mas{color:var(--gold)}
+  .card .marca{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.06em}
+  .card .marca img{width:30px;height:30px;border-radius:8px}
+
+  /* Método */
+  .metodo{background:var(--surface);border-block:1px solid var(--line)}
+  .pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .paso{border-top:3px solid var(--navy);padding-top:24px}
+  .paso .k{font-family:var(--display);font-size:56px;font-weight:700;color:var(--gold);line-height:1}
+  .paso h3{font-size:26px;margin:10px 0 8px}
+  .paso p{margin:0;color:var(--muted)}
+
+  /* Empresa hermana: MyStock Prime */
+  .hermana{background:radial-gradient(ellipse 70% 90% at 100% 0%,#1b3a6b,transparent 60%),var(--navy);color:var(--on-dark);border-radius:28px;padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;overflow:hidden}
+  .hermana .marca{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+  .hermana .marca img{width:56px;height:56px;border-radius:14px;box-shadow:0 10px 30px #0006}
+  .hermana .marca b{display:block;font-family:var(--display);font-size:28px;color:#fff;line-height:1}
+  .hermana .marca small{color:var(--gold);font-family:var(--display);letter-spacing:.18em;font-size:12px;text-transform:uppercase}
+  .hermana h2{font-size:clamp(32px,4.4vw,52px);color:#fff;font-weight:700;margin-bottom:16px}
+  .hermana p{color:var(--on-dark-muted);margin:0 0 24px;max-width:48ch}
+  .hermana ul{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:10px}
+  .hermana li{display:flex;gap:12px}
+  .hermana li::before{content:"";flex:none;width:8px;height:8px;margin-top:9px;background:var(--gold);transform:rotate(45deg)}
+  .sectores{display:flex;flex-wrap:wrap;gap:8px;margin:-8px 0 30px}
+  .sectores span{font-size:13px;padding:6px 12px;border-radius:999px;background:#ffffff10;border:1px solid #ffffff1a}
+
+  /* Vista previa del panel */
+  .panel{background:#0a1730;border:1px solid #ffffff1a;border-radius:20px;padding:18px;box-shadow:0 40px 90px #0009;display:block;transition:transform .25s}
+  .panel:hover{transform:translateY(-4px)}
+  .panel .barra{display:flex;align-items:center;gap:6px;margin-bottom:16px;font-size:12px;color:var(--on-dark-muted)}
+  .panel .barra i{width:9px;height:9px;border-radius:50%;background:#233a63}
+  .panel .barra span{margin-left:auto}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+  .kpi{background:var(--navy-3);border-radius:12px;padding:12px}
+  .kpi small{display:block;color:var(--on-dark-muted);font-size:11px}
+  .kpi b{font-family:var(--display);font-size:22px;color:#fff;font-variant-numeric:tabular-nums}
+  .tabla{width:100%;border-collapse:collapse;font-size:12.5px}
+  .tabla th{color:var(--on-dark-muted);font-weight:500;text-align:left;padding:6px 8px}
+  .tabla td{padding:9px 8px;border-top:1px solid #ffffff12;color:#dbe3f2}
+  .tabla td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .est{font-size:11px;padding:2px 8px;border-radius:999px;font-weight:600;white-space:nowrap}
+  .est.ok{background:#34d39922;color:#6ee7b7}
+  .est.bajo{background:#e9a91c26;color:var(--gold-2)}
+  .est.fuera{background:#f8717126;color:#fca5a5}
+
+  /* Planes de MyStock Prime con Demkor */
+  .planes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:6px}
+  .plan h3{font-size:22px}
+  .plan .precio{font-family:var(--display);font-size:38px;font-weight:700;font-variant-numeric:tabular-nums}
+  .plan .precio small{font-family:var(--font);font-size:14px;font-weight:400;color:var(--muted)}
+  .plan p{margin:0;color:var(--muted);font-size:14px}
+  .plan.medida{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .plan.medida p{color:var(--on-dark-muted)}
+  .plan.medida .precio{color:var(--gold)}
+  .nota{margin-top:18px;font-size:14px;color:var(--muted)}
+
+  /* Contacto */
+  .contacto{background:var(--navy);color:var(--on-dark)}
+  .contacto .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+  .contacto h2{font-size:clamp(52px,8vw,104px);color:#fff;text-transform:uppercase;font-weight:700}
+  .contacto p{color:var(--on-dark-muted);max-width:46ch}
+  .datos{display:grid;gap:18px;border-left:1px solid #ffffff1f;padding-left:32px}
+  .datos div small{display:block;font-family:var(--display);letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--gold)}
+  .datos div{font-size:17px;color:#fff}
+
+  footer{background:#081430;color:var(--on-dark-muted);padding-block:44px;font-size:14px}
+  footer .wrap{display:flex;gap:32px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+  footer img{height:34px;width:auto}
+  footer nav{display:flex;gap:20px;flex-wrap:wrap}
+  footer a:hover{color:#fff}
+
+  @media (max-width:1000px){
+    .servicios,.planes{grid-template-columns:repeat(2,1fr)}
+    .hermana,.hero .grid,.contacto .grid{grid-template-columns:1fr}
+    .hero aside{border-left:0;padding-left:0;grid-template-columns:repeat(3,1fr);border-top:1px solid #ffffff1f;padding-top:28px}
+  }
+  @media (max-width:720px){
+    .menu{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;gap:18px;background:var(--navy);padding:22px 24px;border-bottom:1px solid #ffffff1a}
+    .menu.abierto{display:flex}
+    .burger{display:block}
+    .nav .btn{display:none}
+    .servicios,.planes,.pasos{grid-template-columns:1fr}
+    .hero{padding-block:64px 56px}
+    .hero aside{grid-template-columns:1fr}
+    section{padding-block:64px}
+    .grupo span{display:none}
+    .datos{border-left:0;padding-left:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- Barra del grupo, igual que en las webs hermanas de Mounpick -->
+<div class="grupo">
+  <div class="wrap">
+    <span>Grupo DEMKOR</span>
+    <a class="on" href="#"><img src="assets/demkor-192.png" alt="">Demkor Consultants</a>
+    <a href="https://mystockprime.com"><img src="assets/mystockprime-icono.svg" alt="">MyStock Prime ↗</a>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="DEMKOR CONSULTANTS, inicio"><img src="assets/demkor-logo.png" alt="DEMKOR CONSULTANTS" width="142" height="38"></a>
+    <nav class="menu" id="menu">
+      <a href="#servicios">Servicios</a>
+      <a href="#metodo">Método</a>
+      <a href="#mystockprime">MyStock Prime</a>
+      <a href="#planes">Planes</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn btn-gold" href="https://mystockprime.com/#landing-citas">Hablemos →</a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap grid">
+      <div>
+        <div class="label">Consultora informática · Barcelona</div>
+        <h1>Resolvemos los problemas de <em>tu negocio</em>.</h1>
+        <p>Implantamos el software que necesitas, lo conectamos con lo que ya usas y te damos soporte cuando algo falla. Además, hemos creado nuestra propia plataforma de gestión: MyStock Prime.</p>
+        <div class="ctas">
+          <a class="btn btn-gold" href="https://mystockprime.com/#landing-citas">Reservar una reunión →</a>
+          <a class="btn btn-line" href="https://mystockprime.com">Conoce MyStock Prime ↗</a>
+        </div>
+      </div>
+      <aside>
+        <div><b>+80</b><span>tipos de negocio en MyStock Prime</span></div>
+        <div><b>0 %</b><span>de comisión en las reservas de tus clientes</span></div>
+        <div><b>Sin</b><span>permanencia ni contratos largos</span></div>
+      </aside>
+    </div>
+  </div>
+
+  <section id="servicios">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="label">Servicios</div>
+          <h2>La tecnología de tu negocio, en un solo sitio</h2>
+        </div>
+        <p>Puedes contratar cada servicio por separado o combinarlos en un plan a medida, con un único interlocutor.</p>
+      </div>
+      <div class="servicios">
+        <a class="card producto" href="https://mystockprime.com">
+          <span class="marca"><img src="assets/mystockprime-icono.svg" alt="">MYSTOCK PRIME</span>
+          <span class="n">PRODUCTO PROPIO</span>
+          <h3>Software de gestión</h3>
+          <ul><li>Inventario y ventas</li><li>Clientes y fidelización</li><li>Agenda y reservas online</li><li>Facturas en PDF</li></ul>
+          <span class="mas">Ir a mystockprime.com ↗</span>
+        </a>
+        <div class="card">
+          <span class="n">/ IMPLANTACIÓN</span>
+          <h3>Puesta en marcha</h3>
+          <ul><li>Migración de tus datos</li><li>Configuración por sector</li><li>Formación a tu equipo</li></ul>
+          <a class="mas" href="#contacto">Hablar con nosotros →</a>
+        </div>
+        <div class="card">
+          <span class="n">/ DESARROLLO</span>
+          <h3>Software a medida</h3>
+          <ul><li>Integraciones con tus sistemas</li><li>Automatizaciones</li><li>Webs y tiendas online</li></ul>
+          <a class="mas" href="#contacto">Hablar con nosotros →</a>
+        </div>
+        <div class="card">
+          <span class="n">/ SOPORTE</span>
+          <h3>Soporte IT</h3>
+          <ul><li>Equipos, redes y copias de seguridad</li><li>Mantenimiento continuo</li><li>Gestor dedicado</li></ul>
+          <a class="mas" href="#contacto">Hablar con nosotros →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="metodo" class="metodo">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="label">Método</div>
+          <h2>Así trabajamos contigo</h2>
+        </div>
+        <p>Tres pasos, siempre en el mismo orden, para que sepas en todo momento qué estamos haciendo y por qué.</p>
+      </div>
+      <div class="pasos">
+        <div class="paso"><div class="k">01</div><h3>Diagnóstico</h3><p>Vemos cómo trabajas hoy, qué te hace perder tiempo y dónde se te escapa dinero.</p></div>
+        <div class="paso"><div class="k">02</div><h3>Plan cerrado</h3><p>Te proponemos qué cambiar, en qué orden y a qué precio. Sin sorpresas.</p></div>
+        <div class="paso"><div class="k">03</div><h3>Seguimiento</h3><p>Lo ponemos en marcha y lo revisamos contigo hasta que funcione solo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Acceso a la empresa hermana -->
+  <section id="mystockprime">
+    <div class="wrap">
+      <div class="hermana">
+        <div>
+          <div class="marca">
+            <img src="assets/mystockprime-icono.svg" alt="">
+            <div><b>MyStock Prime</b><small>Una plataforma de Demkor</small></div>
+          </div>
+          <h2>Tu negocio bajo control, desde el móvil o el ordenador</h2>
+          <p>Inventario, ventas, clientes, citas y facturas en un solo panel, adaptado a tu tipo de negocio. Lo hemos diseñado con lo que aprendimos ayudando a comercios y negocios de servicios.</p>
+          <ul>
+            <li>Agenda de día, semana y mes con arrastrar y soltar</li>
+            <li>Página de reservas para tus clientes, sin comisiones</li>
+            <li>Stock en varias tiendas con avisos de stock bajo</li>
+            <li>Fichas de cliente con historial y tarjeta de sellos</li>
+          </ul>
+          <div class="sectores"><span>Peluquerías</span><span>Estética</span><span>Panaderías</span><span>Tiendas de moda</span><span>+80 tipos</span></div>
+          <div class="ctas">
+            <a class="btn btn-gold" href="https://mystockprime.com">Probar la demo →</a>
+            <a class="btn btn-line" href="https://mystockprime.com/#landing-precios">Ver precios</a>
+          </div>
+        </div>
+        <a class="panel" href="https://mystockprime.com" aria-label="Abrir MyStock Prime">
+          <div class="barra"><i></i><i></i><i></i><span>Inventario · Tienda Gràcia</span></div>
+          <div class="kpis">
+            <div class="kpi"><small>Ventas hoy</small><b>1.284 €</b></div>
+            <div class="kpi"><small>Margen</small><b>42 %</b></div>
+            <div class="kpi"><small>Por reponer</small><b>6</b></div>
+          </div>
+          <table class="tabla">
+            <thead><tr><th>Producto</th><th style="text-align:right">Stock</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td>Camiseta lino · M</td><td class="num">38</td><td><span class="est ok">OK</span></td></tr>
+              <tr><td>Champú reparador 500 ml</td><td class="num">4</td><td><span class="est bajo">Bajo</span></td></tr>
+              <tr><td>Bolso piel camel</td><td class="num">0</td><td><span class="est fuera">Agotado</span></td></tr>
+              <tr><td>Pan de masa madre</td><td class="num">26</td><td><span class="est ok">OK</span></td></tr>
+            </tbody>
+          </table>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="planes" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="label">Planes de MyStock Prime</div>
+          <h2>Empieza solo o con nosotros al lado</h2>
+        </div>
+        <p>Los tres primeros planes los activas tú desde la web. En el plan a medida, Demkor se encarga de todo.</p>
+      </div>
+      <div class="planes">
+        <div class="plan"><h3>Emprende</h3><div class="precio">14,90 €<small> /mes</small></div><p>1 tienda, 2 usuarios, hasta 1.000 artículos.</p></div>
+        <div class="plan"><h3>Negocio</h3><div class="precio">29,90 €<small> /mes</small></div><p>Hasta 3 sedes, 5 usuarios, artículos ilimitados.</p></div>
+        <div class="plan"><h3>Multitienda</h3><div class="precio">59 €<small> /mes</small></div><p>Sedes y usuarios ilimitados.</p></div>
+        <div class="plan medida"><h3>A medida</h3><div class="precio">Con Demkor</div><p>Migración de datos, integraciones, formación y un gestor dedicado.</p></div>
+      </div>
+      <p class="nota">Precios sin IVA. Durante la beta, MyStock Prime es gratis y avisaremos antes de empezar a cobrar. <a href="https://mystockprime.com/#landing-precios" style="text-decoration:underline">Ver los precios actualizados ↗</a></p>
+    </div>
+  </section>
+
+  <section id="contacto" class="contacto">
+    <div class="wrap grid">
+      <div>
+        <div class="label">Contacto</div>
+        <h2>Hablemos.</h2>
+        <p>Cuéntanos qué necesita tu negocio. Reserva una reunión con el equipo de Demkor y te proponemos un plan claro.</p>
+        <div class="ctas" style="margin-top:28px">
+          <a class="btn btn-gold" href="https://mystockprime.com/#landing-citas">Reservar una reunión →</a>
+        </div>
+      </div>
+      <div class="datos">
+        <div><small>Empresa</small>DEMKOR CONSULTANTS S.L.</div>
+        <div><small>Oficina</small>Av. Diagonal, 456 · 08006 Barcelona</div>
+        <div><small>Producto</small><a href="https://mystockprime.com" style="text-decoration:underline">mystockprime.com</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/demkor-logo.png" alt="DEMKOR CONSULTANTS" width="127" height="34">
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#mystockprime">MyStock Prime</a>
+      <a href="#planes">Planes</a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://mystockprime.com/legal">Aviso legal</a>
+    </nav>
+    <div>© 2026 DEMKOR CONSULTANTS S.L. · Barcelona</div>
+  </div>
+</footer>
+
+<script>
+  const menu = document.getElementById('menu');
+  const burger = document.getElementById('burger');
+  burger.addEventListener('click', () => {
+    const abierto = menu.classList.toggle('abierto');
+    burger.setAttribute('aria-expanded', abierto);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('abierto');
+    burger.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+</body>
+</html>
